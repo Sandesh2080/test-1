@@ -1,9 +1,7 @@
 pipeline{
 	agent any
 
-	tools {
-		maven 'M3'
-	}
+	
 	    environment {
         AWS_ACCOUNT_ID = "045973518289"
         AWS_CRED = "${env.AWS_CRED}"
