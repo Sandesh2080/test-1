@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'podman' }
     
     tools {
         // Ensure these names match 'Global Tool Configuration' exactly
@@ -33,7 +33,7 @@ pipeline {
         stage('Building-DockerImage') {
             steps {
                 // Fixed: Use a consistent local tag that matches the Push stage
-                sh "docker build -t guna_app:${env.BUILD_NUMBER} ."
+                sh "podman build -t guna_app:${env.BUILD_NUMBER} ."
             }
         }
 
