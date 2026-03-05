@@ -22,11 +22,18 @@ pipeline{
 				git branch: 'main', url: 'https://github.com/Sandesh2080/test-1.git'
 			}
 		}		
-		stage('Build'){
-			steps{
-				sh 'mvn clean package -DskipTests'
-			}
-		}
+        stage('Compile') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+
 		stage('Building-DockerImage'){
 			steps{
 				sh 'podman build -t Guna_app/continous-intergartion:1 .'
