@@ -33,7 +33,7 @@ pipeline {
         stage('Building-DockerImage') {
             steps {
                 // Fixed: Use a consistent local tag that matches the Push stage
-                sh "podman build -t guna_app:${env.BUILD_NUMBER} ."
+                sh "docker build -t guna_app:${env.BUILD_NUMBER} ."
             }
         }
 
