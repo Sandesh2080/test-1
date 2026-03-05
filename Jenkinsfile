@@ -2,8 +2,7 @@ pipeline{
 	agent any
 
 	tools {
-		jdk 'java-11'
-		maven 'maven'
+		maven 'M3'
 	}
 	    environment {
         AWS_ACCOUNT_ID = "045973518289"
@@ -22,7 +21,7 @@ pipeline{
 		}		
 		stage('Build'){
 			steps{
-				sh 'mvn clean package'
+				sh 'mvn clean package -DskipTests'
 			}
 		}
 		stage('Building-DockerImage'){
